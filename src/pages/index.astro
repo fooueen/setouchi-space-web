@@ -1,11 +1,103 @@
----
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setouchi Space - Shared Office</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <style>
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; color: #2c2825; margin: 0; padding: 0; background-color: #fdfbf7; }
+        .flyer-container { max-width: 210mm; margin: 0 auto; background: #fdfbf7; box-sizing: border-box; position: relative; overflow: hidden; box-shadow: 0 0 15px rgba(0,0,0,0.1); }
+        .hero-image { width: 100%; height: 350px; background-image: url('https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=1200&auto=format&fit=crop'); background-size: cover; background-position: center; border-bottom: 8px solid #5c4d3c; }
+        .paper-edge { width: 100%; height: 30px; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0,10 Q5,0 10,10 T20,10 T30,10 T40,10 T50,10 T60,10 T70,10 T80,10 T90,10 T100,10 L100,0 L0,0 Z" fill="%23fdfbf7"/></svg>'); position: relative; top: -29px; margin-bottom: -29px; z-index: 10; }
+        .content { padding: 30px 45px; position: relative; z-index: 20; }
+        .header-section { display: flex; align-items: center; margin-bottom: 25px; }
+        .logo-box { border: 3px solid #3e3a35; padding: 15px 20px; text-align: center; font-weight: bold; font-size: 16pt; line-height: 1.2; margin-right: 25px; border-radius: 5px 5px 0 0; }
+        .title-text h2 { margin: 0 0 5px 0; font-size: 12pt; color: #6d645b; font-weight: normal; letter-spacing: 2px; text-transform: uppercase; }
+        .title-text h1 { margin: 0; font-size: 24pt; color: #2c2825; line-height: 1.2; }
+        .info-grid { display: flex; justify-content: space-between; margin-bottom: 30px; font-size: 11pt; line-height: 1.6; background-color: #f4efe6; padding: 15px 20px; border-left: 5px solid #8c735a; }
+        .info-left { flex: 2; }
+        .info-right { flex: 1; display: flex; justify-content: flex-end; gap: 20px; text-align: center; }
+        .qr-item { display: flex; flex-direction: column; align-items: center; font-size: 9pt; color: #555; }
+        .qr-code { width: 70px; height: 70px; margin-top: 5px; background-image: url('https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://instagram.com'); background-size: cover; }
+        .qr-code.web { background-image: url('https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://example.com'); }
+        .pricing-box { border: 1px solid #c4bcae; background-color: #fff; padding: 25px; margin-bottom: 25px; box-shadow: 2px 2px 5px rgba(0,0,0,0.03); }
+        .pricing-title { text-align: center; font-size: 16pt; font-weight: bold; border-bottom: 1px solid #c4bcae; padding-bottom: 10px; margin-bottom: 20px; color: #3e3a35; }
+        .pricing-columns { display: flex; justify-content: space-between; }
+        .col-left, .col-right { width: 47%; }
+        .col-left { border-right: 1px dotted #c4bcae; padding-right: 25px; }
+        .col-right { padding-left: 10px; }
+        .plan-title { font-size: 13pt; font-weight: bold; margin-bottom: 15px; color: #8c735a; }
+        .price-row { display: flex; justify-content: space-between; font-size: 11pt; margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        .price-amount { font-weight: bold; font-size: 13pt; color: #2c2825; }
+        .highlight-red { color: #d32f2f; font-weight: bold; background-color: #ffeaea; padding: 2px 5px; border-radius: 3px; }
+        ul.features { padding-left: 20px; margin: 15px 0 0 0; font-size: 9.5pt; color: #555; line-height: 1.6; }
+    </style>
+</head>
+<body>
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
----
+<div class="flyer-container">
+    <div class="hero-image"></div>
+    <div class="paper-edge"></div>
 
-<Layout>
-	<Welcome />
-</Layout>
+    <div class="content">
+        <div class="header-section">
+            <div class="logo-box">SETOUCHI<br>SPACE</div>
+            <div class="title-text">
+                <h2>Located in Mukaishima, Onomichi</h2>
+                <h1>Shared Office & <br>Coworking Space</h1>
+            </div>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-left">
+                <strong>📍 Location:</strong> 630-8 Mukaishimacho, Onomichi <br>
+                <span style="color: #666; font-size: 10pt;">(Near "Every" Supermarket)</span><br>
+                <strong>📞 Phone:</strong> 080-5039-4055<br>
+                <strong>🕒 Hours:</strong> 9:30 AM - 6:00 PM (Closed Weekends & Holidays)
+            </div>
+            <div class="info-right">
+                <div class="qr-item">Instagram<div class="qr-code"></div></div>
+                <div class="qr-item">Website<div class="qr-code web"></div></div>
+            </div>
+        </div>
+
+        <div class="pricing-box">
+            <div class="pricing-title">Pricing & Plans</div>
+            <div class="pricing-columns">
+                <div class="col-left">
+                    <div class="plan-title">&lt; Shared Office &gt;</div>
+                    <div class="price-row"><span>Monthly</span><span class="price-amount">¥40,000</span></div>
+                    <ul class="features">
+                        <li>Private room (Up to 4 people)</li>
+                        <li>Utilities & Internet included</li>
+                        <li>Desks and chairs provided</li>
+                        <li>Meeting room access included</li>
+                    </ul>
+                </div>
+                <div class="col-right">
+                    <div class="plan-title">&lt; Coworking &gt;</div>
+                    <div class="price-row"><span>Drop-in (1 Day)</span><div><span style="text-decoration: line-through; color: #888; font-size: 10pt; margin-right: 5px;">¥1,000</span></div></div>
+                    <div class="price-row" style="border-bottom: none; padding-bottom: 0;"><span></span><span class="highlight-red">↳ ¥500 (Until 4/30)</span></div>
+                    <div class="price-row" style="margin-top: 15px;"><span>Drop-in (3 Hours)</span><span class="price-amount">¥500</span></div>
+                    <div class="price-row" style="margin-top: 15px;"><span>Monthly Member</span><span class="price-amount">¥12,000</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
