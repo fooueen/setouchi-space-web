@@ -1,0 +1,19 @@
+﻿backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "pages"
+    label: "ページ編集"
+    files:
+      - label: "トップページ情報"
+        name: "home"
+        file: "src/content/home.md"
+        fields:
+          - {label: "タイトル", name: "title", widget: "string"}
+          - {label: "キャンペーン料金", name: "campaign_price", widget: "number"}
+          - {label: "キャンペーン期限", name: "campaign_deadline", widget: "string"}
+          - {label: "お知らせ・本文", name: "body", widget: "markdown"}
